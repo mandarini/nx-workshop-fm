@@ -19,8 +19,10 @@ export interface HeaderProps {
   title: string;
 }
 
-export const Header = ({ title }: HeaderProps) => {
+export const Header = (props: HeaderProps) => {
   const classes = useStyles();
+
+  const { title } = props;
 
   return (
     <AppBar position="static">

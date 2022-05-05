@@ -9,4 +9,6 @@ export default {
 const Template: Story = (args) => <Header {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+  title: 'Hello!',
+};
