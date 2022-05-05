@@ -15,9 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bg-hoard/my/nice/ui/katerina": [
-        "libs/my/nice/ui/katerina/src/index.ts"
-      ],
       "@bg-hoard/other/ui-shared": ["libs/other/ui-shared/src/index.ts"],
       "@bg-hoard/store/feature-game-detail": [
         "libs/store/feature-game-detail/src/index.ts"
