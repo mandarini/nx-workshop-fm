@@ -5,10 +5,19 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "postinstall": "ngcc --properties es2015 browser module main"
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "~13.3.0",
+    "@angular/common": "~13.3.0",
+    "@angular/compiler": "~13.3.0",
+    "@angular/core": "~13.3.0",
+    "@angular/forms": "~13.3.0",
+    "@angular/platform-browser": "~13.3.0",
+    "@angular/platform-browser-dynamic": "~13.3.0",
+    "@angular/router": "~13.3.0",
     "@material-ui/core": "^4.12.4",
     "@nrwl/angular": "^14.1.1",
     "core-js": "^3.6.5",
@@ -19,9 +28,18 @@
     "react-dom": "18.1.0",
     "react-router-dom": "6.3.0",
     "regenerator-runtime": "0.13.7",
-    "tslib": "^2.3.0"
+    "rxjs": "~7.4.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~13.3.0",
+    "@angular-eslint/eslint-plugin": "~13.1.0",
+    "@angular-eslint/eslint-plugin-template": "~13.1.0",
+    "@angular-eslint/template-parser": "~13.1.0",
+    "@angular/cli": "~13.3.0",
+    "@angular/compiler-cli": "~13.3.0",
+    "@angular/language-service": "~13.3.0",
     "@nrwl/cli": "14.1.1",
     "@nrwl/cypress": "14.1.1",
     "@nrwl/eslint-plugin-nx": "14.1.1",
@@ -50,6 +68,7 @@
     "eslint-plugin-react": "7.29.4",
     "eslint-plugin-react-hooks": "4.5.0",
     "jest": "27.5.1",
+    "jest-preset-angular": "11.1.1",
     "nx": "14.1.1",
     "prettier": "^2.5.1",
     "react-test-renderer": "18.1.0",

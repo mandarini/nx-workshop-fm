@@ -1,0 +1,25 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/other/ui-shared/src",
+  "prefix": "bg-hoard",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/other/ui-shared"],
+      "options": {
+        "jestConfig": "libs/other/ui-shared/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/other/ui-shared/**/*.ts",
+          "libs/other/ui-shared/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

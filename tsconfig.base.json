@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@bg-hoard/my/nice/ui/katerina": [
+        "libs/my/nice/ui/katerina/src/index.ts"
+      ],
+      "@bg-hoard/other/ui-shared": ["libs/other/ui-shared/src/index.ts"],
+      "@bg-hoard/store/ui-shared": ["libs/store/ui-shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
