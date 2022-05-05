@@ -47,5 +47,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:api", "type:app"]
 }

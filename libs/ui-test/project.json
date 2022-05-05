@@ -1,7 +1,7 @@
 {
   "sourceRoot": "libs/ui-test/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["scope:test", "type:ui"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",

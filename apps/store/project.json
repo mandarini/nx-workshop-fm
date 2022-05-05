@@ -107,5 +107,5 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:store", "type:app", "katerina"]
 }
