@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from './app.module.scss';
 
 import { Header } from '@bg-hoard/store/ui-shared';
+import { Game } from '@bg-hoard/api/util-interface';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -18,7 +19,7 @@ import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
 export const App = () => {
   const [state, setState] = useState<{
-    data: any[];
+    data: Game[];
     loadingState: 'success' | 'error' | 'loading';
   }>({
     data: [],

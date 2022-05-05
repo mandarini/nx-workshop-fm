@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@bg-hoard/api/util-interface": ["libs/api/util-interface/src/index.ts"],
       "@bg-hoard/my/nice/ui/katerina": [
         "libs/my/nice/ui/katerina/src/index.ts"
       ],
