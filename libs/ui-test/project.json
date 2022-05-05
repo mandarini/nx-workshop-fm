@@ -1,5 +1,5 @@
 {
-  "sourceRoot": "libs/store/ui-shared/src",
+  "sourceRoot": "libs/ui-test/src",
   "projectType": "library",
   "tags": [],
   "targets": {
@@ -7,14 +7,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/store/ui-shared/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["libs/ui-test/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/store/ui-shared"],
+      "outputs": ["coverage/libs/ui-test"],
       "options": {
-        "jestConfig": "libs/store/ui-shared/jest.config.ts",
+        "jestConfig": "libs/ui-test/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -22,9 +22,9 @@
       "executor": "@nrwl/storybook:storybook",
       "options": {
         "uiFramework": "@storybook/react",
-        "port": 4402,
+        "port": 4401,
         "config": {
-          "configFolder": "libs/store/ui-shared/.storybook"
+          "configFolder": "libs/ui-test/.storybook"
         }
       },
       "configurations": {
@@ -38,9 +38,9 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "uiFramework": "@storybook/react",
-        "outputPath": "dist/storybook/store-ui-shared",
+        "outputPath": "dist/storybook/ui-test",
         "config": {
-          "configFolder": "libs/store/ui-shared/.storybook"
+          "configFolder": "libs/ui-test/.storybook"
         }
       },
       "configurations": {
