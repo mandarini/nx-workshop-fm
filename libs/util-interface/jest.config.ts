@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'api-util-interface',
-  preset: '../../../jest.preset.ts',
+  displayName: 'util-interface',
+  preset: '../../jest.preset.ts',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
@@ -10,5 +10,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/api/util-interface',
+  coverageDirectory: '../../coverage/libs/util-interface',
 };

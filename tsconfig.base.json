@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@bg-hoard/api/util-interface": ["libs/api/util-interface/src/index.ts"],
       "@bg-hoard/my/nice/ui/katerina": [
         "libs/my/nice/ui/katerina/src/index.ts"
       ],
@@ -26,7 +25,8 @@
       "@bg-hoard/store/ui-shared": ["libs/store/ui-shared/src/index.ts"],
       "@bg-hoard/store/util-formatters": [
         "libs/store/util-formatters/src/index.ts"
-      ]
+      ],
+      "@bg-hoard/util-interface": ["libs/util-interface/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

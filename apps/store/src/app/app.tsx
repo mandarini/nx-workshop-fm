@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import styles from './app.module.scss';
 
 import { Header } from '@bg-hoard/store/ui-shared';
-import { Game } from '@bg-hoard/api/util-interface';
+import { Game } from '@bg-hoard/util-interface';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
