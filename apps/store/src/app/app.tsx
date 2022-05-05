@@ -1,5 +1,8 @@
+import { useEffect, useState } from 'react';
+
 import styles from './app.module.scss';
-import { getAllGames } from '../fake-api';
+
+import { Header } from '@bg-hoard/store/ui-shared';
 
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -7,78 +10,90 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
-import { Header } from '@bg-hoard/store/ui-shared';
 import { formatRating } from '@bg-hoard/store/util-formatters';
 
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Link, Routes } from 'react-router-dom';
 
 import { StoreFeatureGameDetail } from '@bg-hoard/store/feature-game-detail';
 
 export const App = () => {
+  const [state, setState] = useState<{
+    data: any[];
+    loadingState: 'success' | 'error' | 'loading';
+  }>({
+    data: [],
+    loadingState: 'success',
+  });
+
+  useEffect(() => {
+    setState((state) => ({
+      ...state,
+      loadingState: 'loading',
+    }));
+    fetch('/api/games')
+      .then((x) => x.json())
+      .then((res) => {
+        setState((state) => ({
+          ...state,
+          data: res,
+          loadingState: 'success',
+        }));
+      })
+      .catch((err) => {
+        setState((state) => ({
+          ...state,
+          loadingState: 'error',
+        }));
+      });
+  }, []);
+
   return (
     <>
       <Header title="Board Game Hoard" />
       <div className={styles['container']}>
         <div className={styles['games-layout']}>
-          {getAllGames().map((x) => (
-            <Link to={`/game/${x.id}`} key={x.id}>
-              <Card key={x.id} className={styles['game-card']}>
-                <CardActionArea>
-                  <CardMedia
-                    className={styles['game-card-media']}
-                    image={x.image}
-                    title={x.name}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      {x.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                    >
-                      {x.description}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      color="textSecondary"
-                      component="p"
-                      className={styles['game-rating']}
-                    >
-                      <strong>Rating:</strong> {formatRating(x.rating)}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Link>
-          ))}
+          {state.loadingState === 'loading'
+            ? 'Loading...'
+            : state.loadingState === 'error'
+            ? '<div>Error retrieving data</div>'
+            : state.data.map((x) => (
+                <Link to={`/game/${x.id}`} key={x.id}>
+                  <Card className={styles['game-card']}>
+                    <CardActionArea>
+                      <CardMedia
+                        className={styles['game-card-media']}
+                        image={x.image}
+                        title={x.name}
+                      />
+                      <CardContent>
+                        <Typography gutterBottom variant="h5" component="h2">
+                          {x.name}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                        >
+                          {x.description}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          color="textSecondary"
+                          component="p"
+                          className={styles['game-rating']}
+                        >
+                          <strong>Rating:</strong> {formatRating(x.rating)}
+                        </Typography>
+                      </CardContent>
+                    </CardActionArea>
+                  </Card>
+                </Link>
+              ))}
         </div>
+        <Routes>
+          <Route path="/game/:id" element={<StoreFeatureGameDetail />} />
+        </Routes>
       </div>
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/feature-game-detail">StoreFeatureGameDetail</Link>
-          </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
-        </ul>
-      </div>
-      <Routes>
-        <Route path="/game/:id" element={<StoreFeatureGameDetail />} />;
-      </Routes>
-      {/* END: routes */}
     </>
   );
 };
