@@ -1,0 +1,82 @@
+{
+  "sourceRoot": "apps/video-games/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/video-games",
+        "index": "apps/video-games/src/index.html",
+        "baseHref": "/",
+        "main": "apps/video-games/src/main.tsx",
+        "polyfills": "apps/video-games/src/polyfills.ts",
+        "tsConfig": "apps/video-games/tsconfig.app.json",
+        "assets": [
+          "apps/video-games/src/favicon.ico",
+          "apps/video-games/src/assets"
+        ],
+        "styles": ["apps/video-games/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/video-games/src/environments/environment.ts",
+              "with": "apps/video-games/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "video-games:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "video-games:build:development"
+        },
+        "production": {
+          "buildTarget": "video-games:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/video-games/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/video-games"],
+      "options": {
+        "jestConfig": "apps/video-games/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["scope:video-games"]
+}
