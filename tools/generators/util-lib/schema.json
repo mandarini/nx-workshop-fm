@@ -17,7 +17,15 @@
       "type": "string",
       "description": "Directory where the library will be created",
       "enum": ["store", "api", "shared"],
-      "x-prompt": "Where do you want to create your library?"
+      "x-prompt": {
+        "message": "Where do you want to create your library?",
+        "type": "list",
+        "items": [
+          { "value": "store", "label": "store" },
+          { "value": "api", "label": "api" },
+          { "value": "shared", "label": "shared" }
+        ]
+      }
     }
   },
   "required": ["name"]

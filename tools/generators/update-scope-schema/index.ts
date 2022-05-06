@@ -6,15 +6,14 @@ import {
   updateJson,
 } from '@nrwl/devkit';
 
-function getScopes(projectMap: Map<string, ProjectConfiguration>) {
-  const projects: any[] = Object.values(projectMap);
-  const allScopes: string[] = projects
-    .map((project) =>
-      project.tags.filter((tag: string) => tag.startsWith('scope:'))
-    )
-    .reduce((acc, tags) => [...acc, ...tags], [])
-    .map((scope: string) => scope.slice(6));
-  return [...new Set(allScopes)];
+function getScopes(tree: Tree) {
+  const r = getProjects(tree);
+  let tags = [];
+  r.forEach((v) => tags.push(v.tags));
+  const scopes = Array.from(new Set(tags.flat().values())).filter((v) =>
+    v.startsWith('scope:')
+  );
+  return scopes;
 }
 
 function replaceScopes(content: string, scopes: string[]): string {
@@ -30,12 +29,15 @@ function replaceScopes(content: string, scopes: string[]): string {
 }
 
 export default async function (host: Tree) {
-  const scopes = getScopes(getProjects(host));
+  const scopes = getScopes(host);
   updateJson(host, 'tools/generators/util-lib/schema.json', (schemaJson) => {
     schemaJson.properties.directory['x-prompt'].items = scopes.map((scope) => ({
       value: scope,
       label: scope,
     }));
+    scopes.forEach((scope) => {
+      schemaJson.properties.directory['enum'].push(scope.replace('scope:', ''));
+    });
     return schemaJson;
   });
   const content = host.read('tools/generators/util-lib/index.ts', 'utf-8');
