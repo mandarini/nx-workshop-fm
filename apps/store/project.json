@@ -120,7 +120,9 @@
           { "command": "mkdir -p scripts", "forwardAllArgs": false },
           {
             "command": "touch scripts/{args.name}.sh",
-            "forwardAllArgs": false
+            "forwardAllArgs": false,
+            "color": "magenta",
+            "bgColor": "bgBlue"
           },
           {
             "command": "chmod +x scripts/{args.name}.sh",
@@ -128,7 +130,15 @@
           }
         ],
         "cwd": "apps/store",
-        "parallel": false
+        "parallel": true
+      }
+    },
+    "finish-when-ready": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["sleep 5 && echo 'FINISHED'", "echo 'READY'"],
+        "readyWhen": "READY",
+        "parallel": true
       }
     }
   },
