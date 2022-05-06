@@ -19,6 +19,9 @@
         "libs/api/util-notification/src/index.ts"
       ],
       "@bg-hoard/other/ui-shared": ["libs/other/ui-shared/src/index.ts"],
+      "@bg-hoard/shared/feature-test-feat": [
+        "libs/shared/feature-test-feat/src/index.ts"
+      ],
       "@bg-hoard/store/feature-game-detail": [
         "libs/store/feature-game-detail/src/index.ts"
       ],

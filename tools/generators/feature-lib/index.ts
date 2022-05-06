@@ -1,5 +1,6 @@
 import { Tree, formatFiles, installPackagesTask } from '@nrwl/devkit';
 import { libraryGenerator } from '@nrwl/workspace/generators';
+
 export interface FeatureLibrarySchema {
   name: string;
   directory: string;
