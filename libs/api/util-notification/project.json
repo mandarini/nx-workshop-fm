@@ -1,0 +1,22 @@
+{
+  "sourceRoot": "libs/api/util-notification/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/api/util-notification/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/api/util-notification"],
+      "options": {
+        "jestConfig": "libs/api/util-notification/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["type:util", "scope:api"]
+}
