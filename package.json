@@ -84,6 +84,7 @@
     "eslint-plugin-react-hooks": "4.5.0",
     "jest": "27.5.1",
     "jest-preset-angular": "11.1.1",
+    "moment": "^2.29.3",
     "nx": "14.1.1",
     "prettier": "^2.5.1",
     "react-test-renderer": "18.1.0",
