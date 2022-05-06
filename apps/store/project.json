@@ -112,6 +112,24 @@
       "options": {
         "command": "npx surge dist/apps/store ${SURGE_DOMAIN_STORE} --token ${SURGE_TOKEN}"
       }
+    },
+    "create-script": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          { "command": "mkdir -p scripts", "forwardAllArgs": false },
+          {
+            "command": "touch scripts/{args.name}.sh",
+            "forwardAllArgs": false
+          },
+          {
+            "command": "chmod +x scripts/{args.name}.sh",
+            "forwardAllArgs": false
+          }
+        ],
+        "cwd": "apps/store",
+        "parallel": false
+      }
     }
   },
   "tags": ["scope:store", "type:app", "katerina"]
