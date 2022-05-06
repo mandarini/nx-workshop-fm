@@ -16,14 +16,40 @@
     "directory": {
       "type": "string",
       "description": "Directory where the library will be created",
-      "enum": ["store", "api", "shared"],
+      "enum": [
+        "store",
+        "api",
+        "shared",
+        "scope:api",
+        "scope:store",
+        "scope:video-games",
+        "scope:test",
+        "scope:shared"
+      ],
       "x-prompt": {
         "message": "Where do you want to create your library?",
         "type": "list",
         "items": [
-          { "value": "store", "label": "store" },
-          { "value": "api", "label": "api" },
-          { "value": "shared", "label": "shared" }
+          {
+            "value": "scope:api",
+            "label": "scope:api"
+          },
+          {
+            "value": "scope:store",
+            "label": "scope:store"
+          },
+          {
+            "value": "scope:video-games",
+            "label": "scope:video-games"
+          },
+          {
+            "value": "scope:test",
+            "label": "scope:test"
+          },
+          {
+            "value": "scope:shared",
+            "label": "scope:shared"
+          }
         ]
       }
     }
