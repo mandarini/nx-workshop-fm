@@ -105,6 +105,13 @@
           "quiet": true
         }
       }
+    },
+    "deploy": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx surge dist/apps/store https://katerina12349876.surge.sh --token 2c9c306ce63337aaf4585dd24753152e"
+      }
     }
   },
   "tags": ["scope:store", "type:app", "katerina"]
