@@ -1,7 +1,7 @@
 {
   "sourceRoot": "libs/store/ui-shared/src",
   "projectType": "library",
-  "tags": ["scope:shared", "type:ui"],
+  "tags": ["scope:shared", "type:feature"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",

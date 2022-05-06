@@ -19,7 +19,7 @@
               {
                 "sourceTag": "scope:api",
                 "onlyDependOnLibsWithTags": ["*"],
-                "notDependOnLibsWithTags": ["type:ui"]
+                "notDependOnLibsWithTags": ["type:feature"]
               }
             ]
           }

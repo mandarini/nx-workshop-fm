@@ -1,7 +1,7 @@
 {
   "sourceRoot": "libs/store/feature-game-detail/src",
   "projectType": "library",
-  "tags": ["scope:store", "type:ui"],
+  "tags": ["scope:store", "type:feature"],
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
