@@ -1,0 +1,6 @@
+<% if ( !isPlainJs ) { %>import { Story, Meta } from '@storybook/react';<% } %>
+<% if ( isPlainJs ) { %> // Plain JS <% } %>
+
+export interface <%= myInterfaceName %>Interface {
+  <%= propOne %>:  <%=  typeOfOne %>
+}

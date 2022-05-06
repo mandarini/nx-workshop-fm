@@ -1,6 +1,9 @@
 import {
   formatFiles,
+  generateFiles,
   getProjects,
+  joinPathFragments,
+  normalizePath,
   ProjectConfiguration,
   Tree,
   updateJson,
@@ -41,6 +44,22 @@ function addScopeIfMissing(host: Tree) {
   });
 }
 
+function alsoCreateAUselessFile(host: Tree, projectPath: string) {
+  generateFiles(
+    host,
+    joinPathFragments(__dirname, './files'),
+    normalizePath(projectPath),
+    {
+      myFileName: 'katerina',
+      propOne: 'myNiceProp',
+      typeOfOne: 'string',
+      myInterfaceName: 'MyKaterina',
+      isPlainJs: true,
+      fileExt: 'ts',
+    }
+  );
+}
+
 export default async function (host: Tree) {
   const scopes = getScopes(host);
   updateJson(host, 'tools/generators/util-lib/schema.json', (schemaJson) => {
@@ -57,5 +76,9 @@ export default async function (host: Tree) {
   const newContent = replaceScopes(content, scopes);
   host.write('tools/generators/util-lib/index.ts', newContent);
   addScopeIfMissing(host);
+  const projectMap = getProjects(host);
+  projectMap.forEach((project) => {
+    alsoCreateAUselessFile(host, project.root);
+  });
   await formatFiles(host);
 }

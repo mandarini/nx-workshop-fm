@@ -24,7 +24,22 @@
         "scope:store",
         "scope:video-games",
         "scope:test",
-        "scope:shared"
+        "scope:shared",
+        "api",
+        "store",
+        "video-games",
+        "test",
+        "shared",
+        "api",
+        "store",
+        "video-games",
+        "test",
+        "shared",
+        "api",
+        "store",
+        "video-games",
+        "test",
+        "shared"
       ],
       "x-prompt": {
         "message": "Where do you want to create your library?",
